@@ -1,0 +1,71 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+
+    <h1 class="display-4">Invoice List</h1>
+</div>
+
+
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.InvoiceList[0].InvoiceNumber)
+
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.InvoiceList[0].Amount)
+
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.InvoiceList[0].CostCategory)
+
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.InvoiceList[0].Period)
+
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model.InvoiceList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Period)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<div class="container">
+    <div>
+        <input type="button" class="btn btn-info" value="Export to Excel" />
+    </div>
+
+    <div id="PivotOutput" style="margin:30px;">
+
+    </div>
+</div>
